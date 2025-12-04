@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('vehicales', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->string('username');
-            $table->string('full_name');
-            $table->string('role');
-            $table->boolean('active');
-            $table->string('last_activity');
+            $table->string('plate_no');
+            $table->string('country');
+            $table->string('make');
+            $table->string('model');
+            $table->string('vin');
         });
+
+
     }
 
     /**
@@ -26,8 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
-        Schema::dropIfExists('password_reset_tokens');
-        Schema::dropIfExists('sessions');
+        Schema::dropIfExists('vehicales');
     }
 };
