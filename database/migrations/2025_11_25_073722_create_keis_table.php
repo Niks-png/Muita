@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('declarant_id');
             $table->string('consignee_id');
             $table->string('vehicle_id');
-            $table->timestamps();
+            $table->timestamps(); 
         });
     }
 
