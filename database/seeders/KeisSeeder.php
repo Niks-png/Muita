@@ -34,6 +34,6 @@ Keis::create([
     'vehicle_id'=> $case['vehicle_id']
 ]);
         
+                      }
     }
-}
 }
