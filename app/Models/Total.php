@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Total extends Model
+{
+    protected $fillable = [
+        'id',
+        'vehicles',
+        'parties',
+        'users',
+        'cases',
+        'inspections',
+        'documents',
+    ];
+}
