@@ -19,6 +19,16 @@
                     <x-nav-link :href="route('cases.index')" :active="request()->routeIs('cases.index')">
                         {{ __('cases') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('inspections.index')" :active="request()->routeIs('inspections.index')">
+                        {{ __('inspections') }}
+                    </x-nav-link>
+
+                    @if(Auth::user() && Auth::user()->role === 'admin')
+                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
+                        {{ __('Users') }}
+                    </x-nav-link>
+                    @endif
                 </div>
                 
             </div>
@@ -75,6 +85,20 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('cases.index')" :active="request()->routeIs('cases.index')">
+                {{ __('cases') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('inspections.index')" :active="request()->routeIs('inspections.index')">
+                {{ __('inspections') }}
+            </x-responsive-nav-link>
+
+            @if(Auth::user() && Auth::user()->role === 'admin')
+            <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
+                {{ __('Users') }}
+            </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->
