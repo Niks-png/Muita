@@ -35,6 +35,21 @@ class InspectionController extends Controller
         $inspection->delete();
         return redirect()->route('inspections.index')->with('success', 'inspection deleted successfully.');
     }
+    public function review($id){
+        $inspection = Inspection::FindORFail($id);
+        return view('inspections.view', compact('inspection'));
+    }
+    public function reviewed(Request $request, $id){
+        $inspection = Inspection::FindORFail($id);
+        $validated = $request->validate([
+            'decision' => 'required|string|max:255',
+            'statement' => 'required|string|max:255',
+        ]);
+        $validated['is_reviewed'] = 1;
+        $inspection->update($validated);
+        return redirect()->route('inspection.show', $inspection->$id);
+
+    }
 
     public function store(Request $request)
     {

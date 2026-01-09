@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('location');
             $table->json('checks');
             $table->string('assigned_to');
+            $table->boolean('is_reviewed')->default(0);
+            $table->string('decision')->nullable();
+            $table->string('statement')->nullable();
             $table->timestamps();
         });
     }

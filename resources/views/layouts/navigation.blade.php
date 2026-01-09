@@ -29,6 +29,12 @@
                         {{ __('Users') }}
                     </x-nav-link>
                     @endif
+
+                    @if(Auth::user()->role === 'broker')
+                        <x-nav-link :href="route('documents.index')" :active="request()->routeIs('documents.index')">
+                            {{ __('Documents') }}
+                        </x-nav-link>
+                    @endif
                 </div>
                 
             </div>

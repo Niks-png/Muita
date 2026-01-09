@@ -3,8 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Document;
 
-class Document extends Controller
+class DocumentController extends Controller
 {
-    //
+    public function index(){
+        $documents = Document::all();
+        return view('documents.index', ['documents' => $documents]);
+    }
+    public function show($id){
+        $document = Document::findOrFail($id);
+        return view('documents.show', compact('document'));
+    }
 }

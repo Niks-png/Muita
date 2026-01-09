@@ -17,5 +17,8 @@ class Inspection extends Model
         'location',
         'checks',
         'assigned_to',
+        'is_reviewed',
+        'decision',
+        'statement',
     ];
 }

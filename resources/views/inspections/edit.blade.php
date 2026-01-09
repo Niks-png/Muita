@@ -5,26 +5,35 @@
             @csrf
             @method('PUT')
             <div>
-                <label class="block text-white" for="request_by">requested_by</label>
-                <input class="p-2 rounded" type="text" name="requested" id="requested" value="{{ old('requested_by', $inspection->requested_by) }}" required>
+                <label class="block text-white" for="request_by">requested_by:</label>
+                <p class="text-white"> {{ $inspection->requested_by }}</p>
             </div>
             <div>
-                <label class="block text-white" for="assigned">assigned_to</label>
-                <select id="role" name="role" required class="w-full p-2 px-4 py-2 bg-gray-700 border border-gray-500 rounded text-white">
-                        <option value="analyst">Analyst</option>
-                        <option value="inspector">Inspector</option>
-                        <option value="broker">Broker</option>
-                        <option value="admin">Admin</option>
-                    </select>
+                <label class="block text-white" for="assigned">assigned_to:</label>
+                <p class="text-white"> {{ $inspection->assigned_to }}</p>
             </div>
             <div>
-                <label class="block text-white" for="start_ts">start_ts</label>
-                <input class="p-2 rounded" type="text" name="start_ts" id="start_ts" value="{{ old('start_ts', $inspection->start_ts) }}" required>
+                <label class="block text-white" for="start_ts">start_ts:</label>
+                <p class="text-white"> {{ $inspection->start_ts }}</p>
             </div>
             <div>
-                <label class="block text-white" for="location">location</label>
-                <input class="p-2 rounded" type="text" name="location" id="location" value="{{ old('location', $inspection->location) }}" required>
+                <label class="block text-white" for="location">location:</label>
+                <p class="text-white">{{ $inspection->location }}</p>
             </div>
+            <div>
+                <lable class="block text-white" for="decision">decision:</lable>
+                <select  >
+                    <option value="release" {{ old('decision', $inspection->decision) == 'release' ? 'selected' : '' }}>Release</option>
+                    <option value="reject" {{ old('decision', $inspection->decision) == 'reject' ? 'selected' : '' }}>Reject</option>
+                    <option value="hold" {{ old('decision', $inspection->decision) == 'hold' ? 'selected' : '' }}>Hold</option>
+                </select>
+            </div>
+
+            <div>
+                <lable class="block text-white" for="statement">statement:</lable>
+                <input class="w-[300px] p-2 rounded" type="text" id="statement" name="statement" value="{{ old('statement', $inspection->statement) }}" required>
+            </div>
+
             
             
             <button type="submit" class=" text-white px-4 py-2 rounded">Update inspection</button>

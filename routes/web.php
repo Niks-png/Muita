@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KeisController;
 use App\Models\Inspection;
+use App\Http\Controllers\DocumentController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,6 +30,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
     Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
     Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+});
+
+Route::middleware('')->group(function () {
+
+    Route::get('/documents', [DocumentController::class, 'index'])->name('documents.index');
+    Route::get('/documents/{id}', [DocumentController::class, 'show'])->name('documents.show');
+
+
+
 });
 
 Route::middleware('auth')->group(function () {
