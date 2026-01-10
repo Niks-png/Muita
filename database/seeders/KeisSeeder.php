@@ -1,11 +1,8 @@
 <?php
-
 namespace Database\Seeders;
-
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Keis;
-
 class KeisSeeder extends Seeder
 {
 
@@ -16,11 +13,9 @@ class KeisSeeder extends Seeder
 
         $data = file_get_contents("https://deskplan.lv/muita/app.json");
         $muitaData = json_decode($data, true);
-
         $cases = $muitaData['cases'];
 
         foreach($cases as $case){
-
         Keis::create([
             'id' => $case['id'],
             'external_ref' =>  $case['external_ref'],

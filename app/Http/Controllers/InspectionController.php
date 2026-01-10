@@ -8,7 +8,7 @@ use App\Models\Inspection;
 class InspectionController extends Controller
 {
     public function index(){
-        $inspections = Inspection::all();
+        $inspections = Inspection::paginate(10);
 
         return view('inspections.index', ['inspections' => $inspections]);
     }

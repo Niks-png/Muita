@@ -1,10 +1,6 @@
 <?php
-
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
-
-
 class Keis extends Model
 {
     protected $keyType = 'string';
@@ -22,7 +18,6 @@ class Keis extends Model
         'declarant_id',
         'consignee_id',
         'vehicle_id',
-
     ];
 
     public function inspections()
@@ -36,7 +31,7 @@ class Keis extends Model
     public function declarant()
     {
         return $this->belongsTo(Partie::class, 'declarant_id');
-}
+    }
     public function consignee()
     {
         return $this->belongsTo(Partie::class, 'consignee_id');
@@ -45,6 +40,7 @@ class Keis extends Model
     {
         return $this->belongsTo(Vehicle::class, 'vehicle_id');
     }
+    
 }
 
 

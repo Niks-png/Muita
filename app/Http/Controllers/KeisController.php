@@ -8,7 +8,7 @@ use App\Models\Keis;
 class KeisController extends Controller
 {
     public function index(){
-        $cases = Keis::all();
+        $cases = Keis::paginate(10);
 
         return view('cases.index', ['cases' => $cases]);
     }
